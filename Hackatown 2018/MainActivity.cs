@@ -49,7 +49,8 @@ namespace Hackatown_2018
                 double[] positionsF = data.GetDoubleArrayExtra("positionF");
                 TimeSpan prep = new TimeSpan(prepTime[0], prepTime[1], 0);
                 DateTime desire = new DateTime(alarm[0], alarm[1], alarm[2], alarm[3], alarm[4], 0);
-                Adapter.AddItem(new Alarm(this, prep, desire, positionsI, positionsF);
+                Adapter.AddItem(new Alarm(this, prep, desire, positionsI, positionsF));
+                myList.Adapter = Adapter;
             }
         }
 
