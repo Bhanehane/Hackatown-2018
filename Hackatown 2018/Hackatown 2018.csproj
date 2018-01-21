@@ -71,6 +71,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityNewItem.cs" />
+    <Compile Include="Alarm.cs" />
+    <Compile Include="DialogDate.cs" />
+    <Compile Include="DialogTime.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyOwnAdapter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -86,6 +90,15 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AlarmLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\NewItemLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\LayoutPicketDate.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\LayoutPickerTime.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

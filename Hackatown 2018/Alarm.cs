@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Hackatown_2018.Broadcast;
+//using Hackatown_2018.Broadcast;
 
 namespace Hackatown_2018
 {
@@ -27,11 +27,16 @@ namespace Hackatown_2018
             Context = context;
             Manager = Context.GetSystemService(Context.AlarmService) as AlarmManager;
         }
-
+        public Alarm(string time, string desiredTimeArrival, string dayOfWeek)
+        {
+            Time = time;
+            DesiredTimeArrival = desiredTimeArrival;
+            DayOfWeek = dayOfWeek;
+        }
         public void StartAlarm(bool isNotif, bool isRepeat)
         {
             PendingIntent pending;
-            CurrentIntent = new Intent(Context, typeof(AlarmReceiver));
+            //CurrentIntent = new Intent(Context, typeof(AlarmReceiver));
             pending = PendingIntent.GetBroadcast(Context, 0, CurrentIntent, 0);
 
             Manager.Set(AlarmType.RtcWakeup, SystemClock.ElapsedRealtime(), pending);

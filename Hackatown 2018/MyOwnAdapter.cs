@@ -50,17 +50,21 @@ namespace Hackatown_2018
             View row = convertView;
             if (row == null)
             {
-                row = LayoutInflater.From(TheContext).Inflate(Resource.Layout.ListViewPerso, null, false);
+                row = LayoutInflater.From(TheContext).Inflate(Resource.Layout.AlarmLayout, null, false);
             }
             TextView alarmTime = row.FindViewById<TextView>(Resource.Id.alarmTime);
             TextView arrivalTime = row.FindViewById<TextView>(Resource.Id.arrivalTime);
             TextView dayOfWeek = row.FindViewById<TextView>(Resource.Id.dayOfWeek);
 
             //Vérifier avec Tony
-            alarmTime.Text = Items[position].alarmTime;
-            arrivalTime.Text = Items[position].arrivalTime;
-            dayOfWeek.Text = Items[position].dayOfWeek;
+            alarmTime.Text = Items[position].Time;
+            arrivalTime.Text = Items[position].DesiredTimeArrival;
+            dayOfWeek.Text = Items[position].DayOfWeek;
             return row;
+        }
+        public void AddItem(Alarm item)
+        {
+            Items.Add(item);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 using System.Collections.Generic;
 
 namespace Hackatown_2018
@@ -20,12 +21,37 @@ namespace Hackatown_2018
 
             alarms = new List<Alarm>();
             alarms.Add(new Alarm("7:00", "10:00", "L"));
-            alarms.Add(new Alarm("5:00", "8:00", "J"));
+            alarms.Add(new Alarm("5:00", "8:00", "Ma"));
+            alarms.Add(new Alarm("9:00", "12:00", "Me"));
+            alarms.Add(new Alarm("21:30", "22:00", "J"));
+            alarms.Add(new Alarm("3:07", "4:03", "V"));
+            alarms.Add(new Alarm("12:05", "12:10", "s"));
+
 
             MyOwnAdapter adapter = new MyOwnAdapter(this, alarms);
             myList.Adapter = adapter;
-        }
 
+            var intentNewItem = new Intent(this, typeof(ActivityNewItem));
+
+            //FindViewById<Button>(Resource.Id.addAlarm).Click += (e, o) =>
+            //{
+            //    adapter.AddItem(new Alarm("00:00", "00:01", "D"));
+            //    myList.Adapter = adapter;
+            //};
+            FindViewById<Button>(Resource.Id.addAlarm).Click += (e, o) =>
+            {
+                StartActivityForResult(intentNewItem, 1);
+            };
+            
+        }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
+            {
+                string Alarm = data.GetStringExtra("alarm");
+            }
+        }
 
     }
 

@@ -3,78 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TableLayout
-        android:padding="10dp"
-        android:background="@android:color/holo_red_light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:textSize="70sp"
-                android:text="7:00"
-                android:gravity="right" />
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="25sp"
-                android:text=""
-                android:gravity="left|center_vertical" />
-            <Switch
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:textOn="A"
-                android:textOff="D"
-                android:gravity="center_vertical" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="40sp"
-                android:text=""
-                android:gravity="center" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="25sp"
-                android:text="L"
-                android:gravity="center" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:textSize="16sp"
-                android:text="Arrivée à destination:"
-                android:gravity="center|right" />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:textSize="25sp"
-                android:text="10:00"
-                android:gravity="center" />
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textSize="25sp"
-                android:text="E" />
-        </TableRow>
-    </TableLayout>
-    <ListView
+    <Button
+        android:id="@+id/addAlarm"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:text="+" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
         android:id="@+id/listText" />
 </LinearLayout>
