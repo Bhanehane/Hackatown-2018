@@ -25,12 +25,12 @@ namespace Hackatown_2018
         private Intent CurrentIntent { get; set; }
         private PendingIntent PendingIntent { get; set; }
         public DateTime DesiredTimeArrival { get; set; }
-        public DateTime PreparationTime { get; set; }
+        public TimeSpan PreparationTime { get; set; }
         public TimeSpan AlarmTime { get; private set; }
         public double[] Position { get; private set; }
         public double[] Destination { get; private set; }
 
-        public Alarm(Context context, DateTime preparationTime, DateTime desiredTimeArrival, double[] position, double[] destination)
+        public Alarm(Context context, TimeSpan preparationTime, DateTime desiredTimeArrival, double[] position, double[] destination)
         {
             Context = context;
             Manager = Context.GetSystemService(Context.AlarmService) as AlarmManager;

@@ -3,12 +3,14 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using System.Collections.Generic;
+using System;
 
 namespace Hackatown_2018
 {
     [Activity(Label = "Hackatown_2018", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        MyOwnAdapter Adapter;
         private List<Alarm> alarms = new List<Alarm>() { };
         private ListView myList;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -20,8 +22,8 @@ namespace Hackatown_2018
             myList = FindViewById<ListView>(Resource.Id.listText);
 
 
-            MyOwnAdapter adapter = new MyOwnAdapter(this, alarms);
-            myList.Adapter = adapter;
+            Adapter = new MyOwnAdapter(this, alarms);
+            myList.Adapter = Adapter;
 
             var intentNewItem = new Intent(this, typeof(ActivityNewItem));
 
@@ -41,7 +43,14 @@ namespace Hackatown_2018
             base.OnActivityResult(requestCode, resultCode, data);
             if (resultCode == Result.Ok)
             {
-                string Alarm = data.GetStringExtra("alarm");
+                int[] alarm = data.GetIntArrayExtra("alarmTime");
+                int[] prepTime = data.GetIntArrayExtra("prepTime");
+                double[] positionsI = data.GetDoubleArrayExtra("positionI");
+                double[] positionsF = data.GetDoubleArrayExtra("positionF");
+                TimeSpan prep = new TimeSpan(prepTime[0], prepTime[1], 0);
+                DateTime desire = new DateTime(alarm[0], alarm[1], alarm[2], alarm[3], alarm[4], 0);
+                Adapter.AddItem(new Alarm(this, prep, desire, positionsI, positionsF));
+                myList.Adapter = Adapter;
             }
         }
 

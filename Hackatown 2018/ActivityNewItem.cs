@@ -18,14 +18,14 @@ namespace Hackatown_2018
         DialogDate dialogDate;
         DialogTime dialogTime;
         DialogTime dialogTimeDesired;
-        //Maps InitPosAct;
-        //Maps DestAct;
         Button btnDate;
         Button btnTime;
         Button btnTimeDesired;
         Button btnInitPos;
         Button btnDest;
         Button btnConfirm;
+        double[] positionsI;
+        double[] positionsF;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,8 +42,6 @@ namespace Hackatown_2018
             dialogDate = new DialogDate(btnDate);
             dialogTime = new DialogTime(btnTime);
             dialogTimeDesired = new DialogTime(btnTimeDesired);
-            //InitPosAct = new Maps(btnInitPos);
-            //DestAct = new Maps(btnDest);
             // Create your application here
 
             btnDate.Click += (e, o) =>
@@ -66,26 +64,26 @@ namespace Hackatown_2018
             };
             btnInitPos.Click += (e, o) =>
             {
-                //var intent = new Intent(this, typeof(Maps));
-                //StartActivity(intent);
+                var intent = new Intent(this, typeof(Maps));
+                StartActivityForResult(intent, 1);
                 TryActivateConfirm();
             };
             btnDest.Click += (e, o) =>
             {
-                //var intent = new Intent(this, typeof(Maps));
-                //StartActivity(intent);
+                var intent = new Intent(this, typeof(Maps));
+                StartActivityForResult(intent, 2);
                 TryActivateConfirm();
             };
             btnConfirm.Click+=(e,o)=>
             {
-                //Mauvais constructeur
-                string alarmT = dialogDate.Time.Year.ToString() + ';' + dialogDate.Time.Month.ToString() + ';' + dialogDate.Time.Day.ToString() + ';' 
-                               + dialogTime.Time.Hour.ToString()+';'+dialogTime.Time.Minute.ToString();
-                Intent.PutExtra("alarm", alarmT);
-                //int[] prép = new int[2] { 0, 0 };
-                //Intent.PutExtra("Prep", prép);
-                //double[] pos = new double[4] { 0, 0, 0, 0 };
-                //Intent.PutExtra("Pos", pos);
+                int[] alarmT = new int[5] { dialogDate.Time.Year, dialogDate.Time.Month, dialogDate.Time.Day, dialogTime.Time.Hour, dialogTime.Time.Minute };
+                Intent.PutExtra("alarmTime", alarmT);
+                int [] prepT = new int[2] { dialogTimeDesired.Time.Hour, dialogTimeDesired.Time.Minute};
+                Intent.PutExtra("prepTime", prepT);
+                Intent.PutExtra("positionI", positionsI);
+                Intent.PutExtra("positionF", positionsF);
+
+
                 SetResult(Result.Ok, Intent);
                 Finish();
             };
@@ -94,9 +92,9 @@ namespace Hackatown_2018
         {
             if(btnTime.Text != "Sélectionner l'heure d'arrivée" && 
                 btnDate.Text != "Sélectionner une date" && 
-                btnTimeDesired.Text != "Sélectionner le temps de préparation" //&& 
-               // btnInitPos.Text != "Sélectionner votre position actuelle" && 
-               /* btnDest.Text != "Sélectionner la destination"*/)
+                btnTimeDesired.Text != "Sélectionner le temps de préparation" && 
+                btnInitPos.Text != "Sélectionner votre position actuelle" &&
+                btnDest.Text != "Sélectionner la destination")
             {
                 btnConfirm.Enabled = true;
             }
@@ -107,6 +105,24 @@ namespace Hackatown_2018
             if (btnConfirm != null)
             {
                 TryActivateConfirm();
+            }
+        }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
+            {
+                if(requestCode == 1)
+                {
+                    positionsI = data.GetDoubleArrayExtra("Coordonnées");
+                    btnInitPos.Text = data.GetStringExtra("Adresse");
+                }
+                else
+                {
+                    positionsF = data.GetDoubleArrayExtra("Coordonnées");
+                    btnDest.Text = data.GetStringExtra("Adresse");
+                }
+                
             }
         }
     }
