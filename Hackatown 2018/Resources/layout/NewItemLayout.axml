@@ -13,7 +13,8 @@
         android:id="@+id/btnDate"
         android:text="Sélectionner une date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light" />
     <TextView
         android:text="Heure d'arrivée:"
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
         android:text="Sélectionner l'heure d'arrivée"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnTime" />
+        android:id="@+id/btnTime"
+        android:background="@android:color/holo_red_light" />
     <TextView
         android:text="Temps de préparation:"
         android:layout_width="match_parent"
@@ -38,19 +40,21 @@
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spHour" />
-      <TextView
-        android:layout_width="wrap_content"
+            android:id="@+id/spHour"
+            android:background="@android:color/holo_red_light" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-        android:text ="heures"/>
+            android:text="heures" />
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spMinute" />
-      <TextView
-        android:layout_width="wrap_content"
+            android:id="@+id/spMinute"
+            android:background="@android:color/holo_red_light" />
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-        android:text ="minutes"/>
+            android:text="minutes" />
     </LinearLayout>
     <TextView
         android:text="Position Actuelle:"
@@ -62,7 +66,8 @@
         android:text="Sélectionner votre position actuelle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnPosActuelle" />
+        android:id="@+id/btnPosActuelle"
+        android:background="@android:color/holo_red_light" />
     <TextView
         android:text="Destination:"
         android:layout_width="match_parent"
@@ -73,7 +78,8 @@
         android:text="Sélectionner la destination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnDest" />
+        android:id="@+id/btnDest"
+        android:background="@android:color/holo_red_light" />
     <Button
         android:text="Confirmer"
         android:layout_width="match_parent"
