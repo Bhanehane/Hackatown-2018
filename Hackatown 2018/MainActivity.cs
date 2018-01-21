@@ -9,7 +9,7 @@ namespace Hackatown_2018
     [Activity(Label = "Hackatown_2018", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        private List<Alarm> alarms;
+        private List<Alarm> alarms = new List<Alarm>() { };
         private ListView myList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -18,14 +18,6 @@ namespace Hackatown_2018
 
             // Set our view from the "main" layout resource
             myList = FindViewById<ListView>(Resource.Id.listText);
-
-            alarms = new List<Alarm>();
-            alarms.Add(new Alarm("7:00", "10:00", "L"));
-            alarms.Add(new Alarm("5:00", "8:00", "Ma"));
-            alarms.Add(new Alarm("9:00", "12:00", "Me"));
-            alarms.Add(new Alarm("21:30", "22:00", "J"));
-            alarms.Add(new Alarm("3:07", "4:03", "V"));
-            alarms.Add(new Alarm("12:05", "12:10", "s"));
 
 
             MyOwnAdapter adapter = new MyOwnAdapter(this, alarms);

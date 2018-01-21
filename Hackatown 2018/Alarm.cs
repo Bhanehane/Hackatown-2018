@@ -21,38 +21,43 @@ namespace Hackatown_2018
         private AlarmManager Manager { get; set; }
         private Intent CurrentIntent { get; set; }
         private PendingIntent PendingIntent { get; set; }
-        public string Time { get; set; }
-        public string DayOfWeek { get; set; }
-        public string DesiredTimeArrival { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime DesiredTimeArrival { get; set; }
+        public DateTime PreparationTime { get; set; }
+        public TimeSpan AlarmTime { get; private set; }
+        public double[] Position { get; private set; }
+        public double[] Destination { get; private set; }
 
-        public Alarm(Context context)
+        public Alarm(Context context, DateTime preparationTime, DateTime desiredTimeArrival, double[] position, double[] destination)
         {
             Context = context;
             Manager = Context.GetSystemService(Context.AlarmService) as AlarmManager;
-            DateTime = new DateTime(2018, 1, 21, 4, 26, 5);
+            DesiredTimeArrival = desiredTimeArrival;
+            PreparationTime = preparationTime;
+            Position = position;
+            Destination = destination;
+            AlarmTime = TimeSpan.Zero;
         }
 
         public void StartAlarm()
         {
-            long interval = GetMilliSec(DateTime);
-            if (interval > 0)
-            {
-                CurrentIntent = new Intent(Context, typeof(AlarmReceiver));
-                string message = "On se réveille";
-                CurrentIntent.PutExtra("message", message);
-                PendingIntent = PendingIntent.GetBroadcast(Context, 0, CurrentIntent, 0);
+            long interval = Convert.ToInt64(AlarmTime.TotalMilliseconds);
+            CurrentIntent = new Intent(Context, typeof(AlarmReceiver));
+            string message = "On se réveille";
+            CurrentIntent.PutExtra("message", message);
+            PendingIntent = PendingIntent.GetBroadcast(Context, 0, CurrentIntent, 0);
 
-                Manager.Set(AlarmType.ElapsedRealtimeWakeup, SystemClock.ElapsedRealtime() + interval, PendingIntent);
-            }
+            Manager.Set(AlarmType.ElapsedRealtimeWakeup, SystemClock.ElapsedRealtime() + interval, PendingIntent);
 
         }
 
-        public long GetMilliSec(DateTime time)
+        public long GetMilliSecFromNowTo(DateTime time)
         {
             TimeSpan interval = time - DateTime.Now;
             return Convert.ToInt64(interval.TotalMilliseconds);
         }
-
+        public void CalculateAlarmTime(DateTime preparationTime, DateTime desiredTimeArrival)
+        {
+            AlarmTime = desiredTimeArrival - preparationTime;
+        }
     }
 }
