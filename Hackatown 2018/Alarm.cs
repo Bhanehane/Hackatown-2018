@@ -31,10 +31,12 @@ namespace Hackatown_2018
         public DateTime AlarmTime { get; private set; }
         public double[] Position { get; private set; }
         public double[] Destination { get; private set; }
+        public bool DepartureTimeIsInThePast { get; set; }
         public bool IsActivated { get; set; }
 
         public Alarm(Context context, TimeSpan preparationTime, DateTime desiredTimeArrival, double[] position, double[] destination)
         {
+            DepartureTimeIsInThePast = false;
             Context = context;
             Manager = Context.GetSystemService(Context.AlarmService) as AlarmManager;
             DesiredTimeArrival = desiredTimeArrival;
@@ -42,6 +44,7 @@ namespace Hackatown_2018
             Position = position;
             Destination = destination;
             CalculateTravelTimeWithTraffic();
+            StartAlarm();
         }
 
         public void StartAlarm()
@@ -98,6 +101,8 @@ namespace Hackatown_2018
 
         private int[] GetTimeFromAPI(double lat1, double long1, double lat2, double long2, DateTime date)
         {
+            string txt ="";
+            string txt2="";
             string html = string.Empty;
             string[] sortie1;
             string[] sortie2;
@@ -117,26 +122,39 @@ namespace Hackatown_2018
                 html = reader.ReadToEnd();
             }
             dynamic jsonResponse = JsonConvert.DeserializeObject(html);
-            string txt = jsonResponse.routes[0].legs[0].duration.text;
-            string txt2 = jsonResponse.routes[0].legs[0].duration_in_traffic.text;
-            sortie1 = txt.Split(' ');
-            sortie2 = txt2.Split(' ');
-            if (sortie1[1][0] == 'h')
+            try
             {
-                resultat[0] = int.Parse(sortie1[0]) * 60;
+                txt = jsonResponse.routes[0].legs[0].duration.text;
+                txt2 = jsonResponse.routes[0].legs[0].duration_in_traffic.text;
+                
             }
-            else
+            catch
             {
-                resultat[0] = int.Parse(sortie1[0]);
+                DepartureTimeIsInThePast = true;
             }
-            if (sortie2[1][0] == 'h')
+
+            if (!DepartureTimeIsInThePast)
             {
-                resultat[1] = int.Parse(sortie2[0]) * 60;
+                sortie1 = txt.Split(' ');
+                sortie2 = txt2.Split(' ');
+                if (sortie1[1][0] == 'h')
+                {
+                    resultat[0] = int.Parse(sortie1[0]) * 60;
+                }
+                else
+                {
+                    resultat[0] = int.Parse(sortie1[0]);
+                }
+                if (sortie2[1][0] == 'h')
+                {
+                    resultat[1] = int.Parse(sortie2[0]) * 60;
+                }
+                else
+                {
+                    resultat[1] = int.Parse(sortie2[0]);
+                }
             }
-            else
-            {
-                resultat[1] = int.Parse(sortie2[0]);
-            }
+
             return resultat;
         }
 
@@ -170,6 +188,10 @@ namespace Hackatown_2018
             }
             return resultat;
 
+        }
+        public void CancelAlarm()
+        {
+            Manager.Cancel(PendingIntent);
         }
     }
 }
