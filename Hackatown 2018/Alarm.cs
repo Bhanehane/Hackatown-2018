@@ -32,6 +32,7 @@ namespace Hackatown_2018
         public double[] Position { get; private set; }
         public double[] Destination { get; private set; }
         public bool DepartureTimeIsInThePast { get; set; }
+        public bool IsActivated { get; set; }
 
         public Alarm(Context context, TimeSpan preparationTime, DateTime desiredTimeArrival, double[] position, double[] destination)
         {
@@ -48,6 +49,10 @@ namespace Hackatown_2018
 
         public void StartAlarm()
         {
+            if (IsActivated)
+            {
+                CancelAlarm();
+            }
             long interval = GetMilliSecFromNowTo(AlarmTime);
             CurrentIntent = new Intent(Context, typeof(AlarmReceiver));
             string message = "On se réveille";
@@ -55,7 +60,7 @@ namespace Hackatown_2018
             PendingIntent = PendingIntent.GetBroadcast(Context, 0, CurrentIntent, 0);
 
             Manager.Set(AlarmType.ElapsedRealtimeWakeup, SystemClock.ElapsedRealtime() + interval, PendingIntent);
-
+            IsActivated = true;
         }
 
         public long GetMilliSecFromNowTo(DateTime time)
@@ -187,6 +192,7 @@ namespace Hackatown_2018
         public void CancelAlarm()
         {
             Manager.Cancel(PendingIntent);
+            IsActivated = false;
         }
     }
 }
