@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using System.Collections.Generic;
+using System;
 
 namespace Hackatown_2018
 {
@@ -46,7 +47,9 @@ namespace Hackatown_2018
                 int[] prepTime = data.GetIntArrayExtra("prepTime");
                 double[] positionsI = data.GetDoubleArrayExtra("positionI");
                 double[] positionsF = data.GetDoubleArrayExtra("positionF");
-                Adapter.AddItem(new Alarm())
+                TimeSpan prep = new TimeSpan(prepTime[0], prepTime[1], 0);
+                DateTime desire = new DateTime(alarm[0], alarm[1], alarm[2], alarm[3], alarm[4], 0);
+                Adapter.AddItem(new Alarm(this, prep, desire, positionsI, positionsF);
             }
         }
 
