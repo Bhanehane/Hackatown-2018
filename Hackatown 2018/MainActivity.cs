@@ -1,50 +1,59 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using System.Net;
-using System;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Android.Gms.Maps;
-using Android.Gms.Maps.Model;
-using Android.Gms.Location;
-using System.IO;
-using System.Globalization;
 using Android.Content;
-using Android.Views.InputMethods;
-
-
-
+using System.Collections.Generic;
 
 namespace Hackatown_2018
 {
     [Activity(Label = "Hackatown_2018", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        private List<Alarm> alarms;
+        private ListView myList;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            // Set our view from the "main" layout resource
+            myList = FindViewById<ListView>(Resource.Id.listText);
 
-            Button butt = FindViewById<Button>(Resource.Id.omaewa);
+            alarms = new List<Alarm>();
+            alarms.Add(new Alarm("7:00", "10:00", "L"));
+            alarms.Add(new Alarm("5:00", "8:00", "Ma"));
+            alarms.Add(new Alarm("9:00", "12:00", "Me"));
+            alarms.Add(new Alarm("21:30", "22:00", "J"));
+            alarms.Add(new Alarm("3:07", "4:03", "V"));
+            alarms.Add(new Alarm("12:05", "12:10", "s"));
 
 
-            butt.Click += (sender, e) =>
+            MyOwnAdapter adapter = new MyOwnAdapter(this, alarms);
+            myList.Adapter = adapter;
+
+            var intentNewItem = new Intent(this, typeof(ActivityNewItem));
+
+            //FindViewById<Button>(Resource.Id.addAlarm).Click += (e, o) =>
+            //{
+            //    adapter.AddItem(new Alarm("00:00", "00:01", "D"));
+            //    myList.Adapter = adapter;
+            //};
+            FindViewById<Button>(Resource.Id.addAlarm).Click += (e, o) =>
             {
-                var intent = new Intent(this, typeof(Maps));
-
-                StartActivityForResult(intent, 1);
+                StartActivityForResult(intentNewItem, 1);
             };
-
-
-
+            
+        }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
+            {
+                string Alarm = data.GetStringExtra("alarm");
+            }
         }
 
-
-
-
     }
+
 }
 
