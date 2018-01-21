@@ -9,6 +9,7 @@ namespace Hackatown_2018
     [Activity(Label = "Hackatown_2018", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        MyOwnAdapter Adapter;
         private List<Alarm> alarms = new List<Alarm>() { };
         private ListView myList;
         protected override void OnCreate(Bundle savedInstanceState)
@@ -20,8 +21,8 @@ namespace Hackatown_2018
             myList = FindViewById<ListView>(Resource.Id.listText);
 
 
-            MyOwnAdapter adapter = new MyOwnAdapter(this, alarms);
-            myList.Adapter = adapter;
+            Adapter = new MyOwnAdapter(this, alarms);
+            myList.Adapter = Adapter;
 
             var intentNewItem = new Intent(this, typeof(ActivityNewItem));
 
@@ -41,7 +42,11 @@ namespace Hackatown_2018
             base.OnActivityResult(requestCode, resultCode, data);
             if (resultCode == Result.Ok)
             {
-                string Alarm = data.GetStringExtra("alarm");
+                int[] alarm = data.GetIntArrayExtra("alarmTime");
+                int[] prepTime = data.GetIntArrayExtra("prepTime");
+                double[] positionsI = data.GetDoubleArrayExtra("positionI");
+                double[] positionsF = data.GetDoubleArrayExtra("positionF");
+                Adapter.AddItem(new Alarm())
             }
         }
 
