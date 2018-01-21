@@ -377,19 +377,16 @@ namespace Hackatown_2018
 			public const int common_plus_signin_btn_text_light_pressed = 2130837545;
 			
 			// aapt resource value: 0x7f02002a
-			public const int ic_notif = 2130837546;
+			public const int places_ic_clear = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
-			public const int places_ic_clear = 2130837547;
+			public const int places_ic_search = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int places_ic_search = 2130837548;
+			public const int powered_by_google_dark = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int powered_by_google_dark = 2130837549;
-			
-			// aapt resource value: 0x7f02002e
-			public const int powered_by_google_light = 2130837550;
+			public const int powered_by_google_light = 2130837549;
 			
 			static Drawable()
 			{
@@ -404,9 +401,6 @@ namespace Hackatown_2018
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f08000d
-			public const int One = 2131230733;
-			
 			// aapt resource value: 0x7f080005
 			public const int adjust_height = 2131230725;
 			
@@ -415,6 +409,21 @@ namespace Hackatown_2018
 			
 			// aapt resource value: 0x7f08000a
 			public const int auto = 2131230730;
+			
+			// aapt resource value: 0x7f080014
+			public const int autoCompleteTextView1 = 2131230740;
+			
+			// aapt resource value: 0x7f08000e
+			public const int button1 = 2131230734;
+			
+			// aapt resource value: 0x7f08000f
+			public const int button2 = 2131230735;
+			
+			// aapt resource value: 0x7f080013
+			public const int checkBox1 = 2131230739;
+			
+			// aapt resource value: 0x7f080012
+			public const int checkBox2 = 2131230738;
 			
 			// aapt resource value: 0x7f08000b
 			public const int dark = 2131230731;
@@ -428,35 +437,41 @@ namespace Hackatown_2018
 			// aapt resource value: 0x7f08000c
 			public const int light = 2131230732;
 			
+			// aapt resource value: 0x7f080010
+			public const int map = 2131230736;
+			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
 			
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
-			// aapt resource value: 0x7f080010
-			public const int place_autocomplete_clear_button = 2131230736;
+			// aapt resource value: 0x7f080011
+			public const int omaewa = 2131230737;
 			
-			// aapt resource value: 0x7f080012
-			public const int place_autocomplete_powered_by_google = 2131230738;
+			// aapt resource value: 0x7f080017
+			public const int place_autocomplete_clear_button = 2131230743;
 			
-			// aapt resource value: 0x7f080014
-			public const int place_autocomplete_prediction_primary_text = 2131230740;
+			// aapt resource value: 0x7f080019
+			public const int place_autocomplete_powered_by_google = 2131230745;
+			
+			// aapt resource value: 0x7f08001b
+			public const int place_autocomplete_prediction_primary_text = 2131230747;
+			
+			// aapt resource value: 0x7f08001c
+			public const int place_autocomplete_prediction_secondary_text = 2131230748;
+			
+			// aapt resource value: 0x7f08001a
+			public const int place_autocomplete_progress = 2131230746;
 			
 			// aapt resource value: 0x7f080015
-			public const int place_autocomplete_prediction_secondary_text = 2131230741;
+			public const int place_autocomplete_search_button = 2131230741;
 			
-			// aapt resource value: 0x7f080013
-			public const int place_autocomplete_progress = 2131230739;
+			// aapt resource value: 0x7f080016
+			public const int place_autocomplete_search_input = 2131230742;
 			
-			// aapt resource value: 0x7f08000e
-			public const int place_autocomplete_search_button = 2131230734;
-			
-			// aapt resource value: 0x7f08000f
-			public const int place_autocomplete_search_input = 2131230735;
-			
-			// aapt resource value: 0x7f080011
-			public const int place_autocomplete_separator = 2131230737;
+			// aapt resource value: 0x7f080018
+			public const int place_autocomplete_separator = 2131230744;
 			
 			// aapt resource value: 0x7f080003
 			public const int satellite = 2131230723;
@@ -466,6 +481,9 @@ namespace Hackatown_2018
 			
 			// aapt resource value: 0x7f080004
 			public const int terrain = 2131230724;
+			
+			// aapt resource value: 0x7f08000d
+			public const int text1 = 2131230733;
 			
 			// aapt resource value: 0x7f080009
 			public const int wide = 2131230729;
@@ -500,19 +518,22 @@ namespace Hackatown_2018
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int LayoutMap = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int place_autocomplete_fragment = 2130903041;
+			public const int Main = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int place_autocomplete_item_powered_by_google = 2130903042;
+			public const int place_autocomplete_fragment = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int place_autocomplete_item_prediction = 2130903043;
+			public const int place_autocomplete_item_powered_by_google = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int place_autocomplete_progress = 2130903044;
+			public const int place_autocomplete_item_prediction = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int place_autocomplete_progress = 2130903045;
 			
 			static Layout()
 			{
