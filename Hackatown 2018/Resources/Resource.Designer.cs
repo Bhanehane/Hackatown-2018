@@ -176,45 +176,8 @@ namespace Hackatown_2018
 			// aapt resource value: 0x7f04000b
 			public const int common_plus_signin_btn_text_light_pressed = 2130968587;
 			
-			// aapt resource value: 0x7f040009
-			public const int addAlarm = 2130968585;
-			
-			// aapt resource value: 0x7f040000
-			public const int alarmTime = 2130968576;
-			
 			// aapt resource value: 0x7f040002
 			public const int place_autocomplete_prediction_primary_text = 2130968578;
-			public const int arrivalTime = 2130968578;
-			
-			// aapt resource value: 0x7f040015
-			public const int btnConfirmerNew = 2130968597;
-			
-			// aapt resource value: 0x7f04000c
-			public const int btnDate = 2130968588;
-			
-			// aapt resource value: 0x7f040006
-			public const int btnDateConfirm = 2130968582;
-			
-			// aapt resource value: 0x7f040014
-			public const int btnDest = 2130968596;
-			
-			// aapt resource value: 0x7f040012
-			public const int btnPosActuelle = 2130968594;
-			
-			// aapt resource value: 0x7f04000e
-			public const int btnTime = 2130968590;
-			
-			// aapt resource value: 0x7f040004
-			public const int btnTimeConfirm = 2130968580;
-			
-			// aapt resource value: 0x7f040010
-			public const int btnTimeDesired = 2130968592;
-			
-			// aapt resource value: 0x7f040008
-			public const int buttontest = 2130968584;
-			
-			// aapt resource value: 0x7f040005
-			public const int datePicker1 = 2130968581;
 			
 			// aapt resource value: 0x7f040003
 			public const int place_autocomplete_prediction_primary_text_highlight = 2130968579;
@@ -223,28 +186,6 @@ namespace Hackatown_2018
 			public const int place_autocomplete_prediction_secondary_text = 2130968580;
 			
 			// aapt resource value: 0x7f040001
-			public const int dayOfWeek = 2130968577;
-			
-			// aapt resource value: 0x7f04000a
-			public const int listText = 2130968586;
-			
-			// aapt resource value: 0x7f040007
-			public const int textName = 2130968583;
-			
-			// aapt resource value: 0x7f04000b
-			public const int textView1 = 2130968587;
-			
-			// aapt resource value: 0x7f04000d
-			public const int textView2 = 2130968589;
-			
-			// aapt resource value: 0x7f04000f
-			public const int textView3 = 2130968591;
-			
-			// aapt resource value: 0x7f040011
-			public const int textView4 = 2130968593;
-			
-			// aapt resource value: 0x7f040013
-			public const int textView5 = 2130968595;
 			public const int place_autocomplete_search_hint = 2130968577;
 			
 			// aapt resource value: 0x7f040000
@@ -463,32 +404,65 @@ namespace Hackatown_2018
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f08001a
+			public const int addAlarm = 2131230746;
+			
 			// aapt resource value: 0x7f080005
 			public const int adjust_height = 2131230725;
 			
 			// aapt resource value: 0x7f080006
 			public const int adjust_width = 2131230726;
 			
+			// aapt resource value: 0x7f08000d
+			public const int alarmTime = 2131230733;
+			
+			// aapt resource value: 0x7f08000f
+			public const int arrivalTime = 2131230735;
+			
 			// aapt resource value: 0x7f08000a
 			public const int auto = 2131230730;
 			
-			// aapt resource value: 0x7f080014
-			public const int autoCompleteTextView1 = 2131230740;
+			// aapt resource value: 0x7f080026
+			public const int btnConfirmerNew = 2131230758;
 			
-			// aapt resource value: 0x7f08000e
-			public const int button1 = 2131230734;
+			// aapt resource value: 0x7f08001d
+			public const int btnDate = 2131230749;
 			
-			// aapt resource value: 0x7f08000f
-			public const int button2 = 2131230735;
+			// aapt resource value: 0x7f080017
+			public const int btnDateConfirm = 2131230743;
 			
-			// aapt resource value: 0x7f080013
-			public const int checkBox1 = 2131230739;
+			// aapt resource value: 0x7f080025
+			public const int btnDest = 2131230757;
+			
+			// aapt resource value: 0x7f080023
+			public const int btnPosActuelle = 2131230755;
+			
+			// aapt resource value: 0x7f08001f
+			public const int btnTime = 2131230751;
+			
+			// aapt resource value: 0x7f080015
+			public const int btnTimeConfirm = 2131230741;
+			
+			// aapt resource value: 0x7f080021
+			public const int btnTimeDesired = 2131230753;
+			
+			// aapt resource value: 0x7f080011
+			public const int button1 = 2131230737;
 			
 			// aapt resource value: 0x7f080012
-			public const int checkBox2 = 2131230738;
+			public const int button2 = 2131230738;
+			
+			// aapt resource value: 0x7f080019
+			public const int buttontest = 2131230745;
 			
 			// aapt resource value: 0x7f08000b
 			public const int dark = 2131230731;
+			
+			// aapt resource value: 0x7f080016
+			public const int datePicker1 = 2131230742;
+			
+			// aapt resource value: 0x7f08000e
+			public const int dayOfWeek = 2131230734;
 			
 			// aapt resource value: 0x7f080000
 			public const int hybrid = 2131230720;
@@ -499,8 +473,11 @@ namespace Hackatown_2018
 			// aapt resource value: 0x7f08000c
 			public const int light = 2131230732;
 			
-			// aapt resource value: 0x7f080010
-			public const int map = 2131230736;
+			// aapt resource value: 0x7f08001b
+			public const int listText = 2131230747;
+			
+			// aapt resource value: 0x7f080013
+			public const int map = 2131230739;
 			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
@@ -508,32 +485,29 @@ namespace Hackatown_2018
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
-			// aapt resource value: 0x7f080011
-			public const int omaewa = 2131230737;
+			// aapt resource value: 0x7f080029
+			public const int place_autocomplete_clear_button = 2131230761;
 			
-			// aapt resource value: 0x7f080017
-			public const int place_autocomplete_clear_button = 2131230743;
+			// aapt resource value: 0x7f08002b
+			public const int place_autocomplete_powered_by_google = 2131230763;
 			
-			// aapt resource value: 0x7f080019
-			public const int place_autocomplete_powered_by_google = 2131230745;
+			// aapt resource value: 0x7f08002d
+			public const int place_autocomplete_prediction_primary_text = 2131230765;
 			
-			// aapt resource value: 0x7f08001b
-			public const int place_autocomplete_prediction_primary_text = 2131230747;
+			// aapt resource value: 0x7f08002e
+			public const int place_autocomplete_prediction_secondary_text = 2131230766;
 			
-			// aapt resource value: 0x7f08001c
-			public const int place_autocomplete_prediction_secondary_text = 2131230748;
+			// aapt resource value: 0x7f08002c
+			public const int place_autocomplete_progress = 2131230764;
 			
-			// aapt resource value: 0x7f08001a
-			public const int place_autocomplete_progress = 2131230746;
+			// aapt resource value: 0x7f080027
+			public const int place_autocomplete_search_button = 2131230759;
 			
-			// aapt resource value: 0x7f080015
-			public const int place_autocomplete_search_button = 2131230741;
+			// aapt resource value: 0x7f080028
+			public const int place_autocomplete_search_input = 2131230760;
 			
-			// aapt resource value: 0x7f080016
-			public const int place_autocomplete_search_input = 2131230742;
-			
-			// aapt resource value: 0x7f080018
-			public const int place_autocomplete_separator = 2131230744;
+			// aapt resource value: 0x7f08002a
+			public const int place_autocomplete_separator = 2131230762;
 			
 			// aapt resource value: 0x7f080003
 			public const int satellite = 2131230723;
@@ -544,13 +518,32 @@ namespace Hackatown_2018
 			// aapt resource value: 0x7f080004
 			public const int terrain = 2131230724;
 			
-			// aapt resource value: 0x7f08000d
-			public const int text1 = 2131230733;
+			// aapt resource value: 0x7f080010
+			public const int text1 = 2131230736;
+			
+			// aapt resource value: 0x7f080018
+			public const int textName = 2131230744;
+			
+			// aapt resource value: 0x7f08001c
+			public const int textView1 = 2131230748;
+			
+			// aapt resource value: 0x7f08001e
+			public const int textView2 = 2131230750;
+			
+			// aapt resource value: 0x7f080020
+			public const int textView3 = 2131230752;
+			
+			// aapt resource value: 0x7f080022
+			public const int textView4 = 2131230754;
+			
+			// aapt resource value: 0x7f080024
+			public const int textView5 = 2131230756;
+			
+			// aapt resource value: 0x7f080014
+			public const int timePicker1 = 2131230740;
 			
 			// aapt resource value: 0x7f080009
 			public const int wide = 2131230729;
-			// aapt resource value: 0x7f040003
-			public const int timePicker1 = 2130968579;
 			
 			static Id()
 			{
@@ -581,40 +574,38 @@ namespace Hackatown_2018
 		public partial class Layout
 		{
 			
-			// aapt resource value: 0x7f020000
-			public const int AlarmLayout = 2130837504;
-			
-			// aapt resource value: 0x7f020001
-			public const int LayoutPickerTime = 2130837505;
-			
-			// aapt resource value: 0x7f020002
-			public const int LayoutPicketDate = 2130837506;
-			
-			// aapt resource value: 0x7f020003
-			public const int ListViewPerso = 2130837507;
-			
-			// aapt resource value: 0x7f020004
-			public const int Main = 2130837508;
-			
-			// aapt resource value: 0x7f020005
-			public const int NewItemLayout = 2130837509;
 			// aapt resource value: 0x7f030000
-			public const int LayoutMap = 2130903040;
+			public const int AlarmLayout = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
+			public const int LayoutMap = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int place_autocomplete_fragment = 2130903042;
+			public const int LayoutPickerTime = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int place_autocomplete_item_powered_by_google = 2130903043;
+			public const int LayoutPicketDate = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int place_autocomplete_item_prediction = 2130903044;
+			public const int ListViewPerso = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int place_autocomplete_progress = 2130903045;
+			public const int Main = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int NewItemLayout = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int place_autocomplete_fragment = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int place_autocomplete_item_powered_by_google = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int place_autocomplete_item_prediction = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int place_autocomplete_progress = 2130903050;
 			
 			static Layout()
 			{

@@ -21,9 +21,8 @@ namespace Hackatown_2018
         private AlarmManager Manager { get; set; }
         private Intent CurrentIntent { get; set; }
         private PendingIntent PendingIntent { get; set; }
-        public string Time { get; set; }
-        public string DayOfWeek { get; set; }
-        public string DesiredTimeArrival { get; set; }
+        public DateTime DesiredTimeArrival { get; set; }
+        public DateTime PreparationTime { get; set; }
         public DateTime DateTime { get; set; }
 
         public Alarm(Context context)
