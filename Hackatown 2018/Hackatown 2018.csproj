@@ -83,6 +83,7 @@
     <Compile Include="DialogDate.cs" />
     <Compile Include="DialogTime.cs" />
     <Compile Include="AlarmReceiver.cs" />
+    <Compile Include="EditDialog.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyOwnAdapter.cs" />
     <Compile Include="Maps.cs" />
@@ -115,12 +116,17 @@
     <AndroidResource Include="Resources\layout\LayoutMap.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\Edit.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />

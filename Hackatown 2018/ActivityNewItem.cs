@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +18,21 @@ namespace Hackatown_2018
     {
         DialogDate dialogDate;
         DialogTime dialogTime;
-        DialogTime dialogTimeDesired;
+        //DialogTime dialogTimeDesired;
         Button btnDate;
         Button btnTime;
-        Button btnTimeDesired;
+        //Button btnTimeDesired;
         Button btnInitPos;
         Button btnDest;
         Button btnConfirm;
         double[] positionsI;
         double[] positionsF;
+        Spinner SpHour;
+        Spinner SpMin;
+        ArrayAdapter AdapterH;
+        ArrayAdapter AdapterM;
+        string[] ArrayH;
+        string[] ArrayM;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,51 +41,65 @@ namespace Hackatown_2018
 
             btnDate = FindViewById<Button>(Resource.Id.btnDate);
             btnTime = FindViewById<Button>(Resource.Id.btnTime);
-            btnTimeDesired = FindViewById<Button>(Resource.Id.btnTimeDesired);
+            //btnTimeDesired = FindViewById<Button>(Resource.Id.btnTimeDesired);
             btnInitPos = FindViewById<Button>(Resource.Id.btnPosActuelle);
             btnDest = FindViewById<Button>(Resource.Id.btnDest);
             btnConfirm = FindViewById<Button>(Resource.Id.btnConfirmerNew);
 
+            SpHour = FindViewById<Spinner>(Resource.Id.spHour);
+            SpMin = FindViewById<Spinner>(Resource.Id.spMinute);
+
             dialogDate = new DialogDate(btnDate);
             dialogTime = new DialogTime(btnTime);
-            dialogTimeDesired = new DialogTime(btnTimeDesired);
+            //dialogTimeDesired = new DialogTime(btnTimeDesired);
             // Create your application here
+
+            ArrayH = new string[24];
+            for(int i = 0; i<24;i++)
+            {
+                ArrayH[i] = i.ToString("D2");
+            }
+            ArrayM = new string[60];
+            for(int i = 0; i< 60;i++)
+            {
+                ArrayM[i] = i.ToString("D2");
+            }
+            AdapterH = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, ArrayH);
+            AdapterM = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, ArrayM);
+            SpHour.Adapter = AdapterH;
+            SpMin.Adapter = AdapterM;
+
 
             btnDate.Click += (e, o) =>
             {
                 FragmentTransaction fragTrans = FragmentManager.BeginTransaction();
                 dialogDate.Show(fragTrans, "dialog fragment");
-                TryActivateConfirm();
             };
             btnTime.Click += (e, o) =>
             {
                 FragmentTransaction fragTrans = FragmentManager.BeginTransaction();
                 dialogTime.Show(fragTrans, "dialog fragment");
-                TryActivateConfirm();
             };
-            btnTimeDesired.Click += (e, o) =>
-            {
-                FragmentTransaction fragTrans = FragmentManager.BeginTransaction();
-                dialogTimeDesired.Show(fragTrans, "dialog fragment");
-                TryActivateConfirm();
-            };
+            //btnTimeDesired.Click += (e, o) =>
+            //{
+            //    FragmentTransaction fragTrans = FragmentManager.BeginTransaction();
+            //    dialogTimeDesired.Show(fragTrans, "dialog fragment");
+            //};
             btnInitPos.Click += (e, o) =>
             {
                 var intent = new Intent(this, typeof(Maps));
                 StartActivityForResult(intent, 1);
-                TryActivateConfirm();
             };
             btnDest.Click += (e, o) =>
             {
                 var intent = new Intent(this, typeof(Maps));
                 StartActivityForResult(intent, 2);
-                TryActivateConfirm();
             };
             btnConfirm.Click+=(e,o)=>
             {
                 int[] alarmT = new int[5] { dialogDate.Time.Year, dialogDate.Time.Month, dialogDate.Time.Day, dialogTime.Time.Hour, dialogTime.Time.Minute };
                 Intent.PutExtra("alarmTime", alarmT);
-                int [] prepT = new int[2] { dialogTimeDesired.Time.Hour, dialogTimeDesired.Time.Minute};
+                int[] prepT = new int[2] { SpHour.SelectedItemPosition, SpMin.SelectedItemPosition };
                 Intent.PutExtra("prepTime", prepT);
                 Intent.PutExtra("positionI", positionsI);
                 Intent.PutExtra("positionF", positionsF);
@@ -92,7 +113,7 @@ namespace Hackatown_2018
         {
             if(btnTime.Text != "Sélectionner l'heure d'arrivée" && 
                 btnDate.Text != "Sélectionner une date" && 
-                btnTimeDesired.Text != "Sélectionner le temps de préparation" && 
+                //btnTimeDesired.Text != "Sélectionner le temps de préparation" && 
                 btnInitPos.Text != "Sélectionner votre position actuelle" &&
                 btnDest.Text != "Sélectionner la destination")
             {
