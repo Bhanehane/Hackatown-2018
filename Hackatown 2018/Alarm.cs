@@ -28,7 +28,7 @@ namespace Hackatown_2018
         public DateTime DepartureTime { get; set; }
         public TimeSpan PreparationTime { get; set; }
         public TimeSpan TravelTime { get; set; }
-        public TimeSpan AlarmTime { get; private set; }
+        public DateTime AlarmTime { get; private set; }
         public double[] Position { get; private set; }
         public double[] Destination { get; private set; }
 
@@ -40,12 +40,12 @@ namespace Hackatown_2018
             PreparationTime = preparationTime;
             Position = position;
             Destination = destination;
-            AlarmTime = TimeSpan.Zero;
+            CalculateTravelTimeWithTraffic();
         }
 
         public void StartAlarm()
         {
-            long interval = Convert.ToInt64(AlarmTime.TotalMilliseconds);
+            long interval = GetMilliSecFromNowTo(AlarmTime);
             CurrentIntent = new Intent(Context, typeof(AlarmReceiver));
             string message = "On se réveille";
             CurrentIntent.PutExtra("message", message);
@@ -60,9 +60,9 @@ namespace Hackatown_2018
             TimeSpan interval = time - DateTime.Now;
             return Convert.ToInt64(interval.TotalMilliseconds);
         }
-        public void CalculateAlarmTime(DateTime preparationTime, DateTime desiredTimeArrival)
+        public void CalculateAlarmTime(TimeSpan preparationTime, DateTime departureTime)
         {
-            AlarmTime = desiredTimeArrival - preparationTime;
+            AlarmTime = departureTime.Subtract(preparationTime);
         }
 
 
@@ -71,16 +71,18 @@ namespace Hackatown_2018
             int timeNeeded = GetTimeFromAPI(Position[0], Position[1], Destination[0], Destination[1]);
             DateTime date = DesiredTimeArrival.Subtract(new TimeSpan(0, timeNeeded, 0));
             int[] timeAndTraffic = GetTimeFromAPI(Position[0], Position[1], Destination[0], Destination[1],date);
+            TimeSpan travel = new TimeSpan(0, timeAndTraffic[0] + timeAndTraffic[1], 0);
 
-
-            while(timeNeeded < timeAndTraffic[0] + timeAndTraffic[1])
+            while(travel > DesiredTimeArrival- date)
             {
-                date.Subtract(new TimeSpan(0, timeAndTraffic[1] + timeAndTraffic[0] - timeNeeded, 0));
+                date = date.Subtract(new TimeSpan(0, 1, 0));
                 timeAndTraffic = GetTimeFromAPI(Position[0], Position[1], Destination[0], Destination[1], date);
+                travel = new TimeSpan(0, timeAndTraffic[0] + timeAndTraffic[1], 0);
             }
 
             DepartureTime = date;
             TravelTime = new TimeSpan(0, timeNeeded, 0);
+            CalculateAlarmTime(PreparationTime, DepartureTime);
         }
 
         public long ConvertToTimestamp(DateTime value)
@@ -96,7 +98,10 @@ namespace Hackatown_2018
             string[] sortie2;
             int[] resultat = new int[2];
             long timeStamp = ConvertToTimestamp(date);
-            string url = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + lat1.ToString() + ',' + long1.ToString() + "&destination=" + lat2.ToString() + ',' + long2.ToString() + "&departure_time=" + timeStamp.ToString() + "&key=AIzaSyDwgUfhlc26aVBOm2NZUAA5vQHixHIvyp0";
+            string url = @"https://maps.googleapis.com/maps/api/directions/json?origin=" + 
+                lat1.ToString("G",new CultureInfo("en-US")) + ',' + long1.ToString("G", new CultureInfo("en-US")) +
+                "&destination=" + lat2.ToString("G", new CultureInfo("en-US")) + ',' + long2.ToString("G", new CultureInfo("en-US"))
+                + "&departure_time=" + timeStamp.ToString() + "&key=AIzaSyDwgUfhlc26aVBOm2NZUAA5vQHixHIvyp0";
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
