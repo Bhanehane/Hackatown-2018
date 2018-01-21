@@ -23,7 +23,7 @@ namespace Hackatown_2018
         private PendingIntent PendingIntent { get; set; }
         public DateTime DesiredTimeArrival { get; set; }
         public DateTime PreparationTime { get; set; }
-        private TimeSpan AlarmTime { get; set; }
+        public TimeSpan AlarmTime { get; private set; }
         public double[] Position { get; private set; }
         public double[] Destination { get; private set; }
 
