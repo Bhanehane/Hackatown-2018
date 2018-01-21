@@ -25,7 +25,9 @@ namespace Hackatown_2018
         private Intent CurrentIntent { get; set; }
         private PendingIntent PendingIntent { get; set; }
         public DateTime DesiredTimeArrival { get; set; }
+        public DateTime DepartureTime { get; set; }
         public TimeSpan PreparationTime { get; set; }
+        public TimeSpan TravelTime { get; set; }
         public TimeSpan AlarmTime { get; private set; }
         public double[] Position { get; private set; }
         public double[] Destination { get; private set; }
@@ -67,7 +69,18 @@ namespace Hackatown_2018
         public void CalculateTravelTimeWithTraffic()
         {
             int timeNeeded = GetTimeFromAPI(Position[0], Position[1], Destination[0], Destination[1]);
-            
+            DateTime date = DesiredTimeArrival.Subtract(new TimeSpan(0, timeNeeded, 0));
+            int[] timeAndTraffic = GetTimeFromAPI(Position[0], Position[1], Destination[0], Destination[1],date);
+
+
+            while(timeNeeded < timeAndTraffic[0] + timeAndTraffic[1])
+            {
+                date.Subtract(new TimeSpan(0, timeAndTraffic[1] + timeAndTraffic[0] - timeNeeded, 0));
+                timeAndTraffic = GetTimeFromAPI(Position[0], Position[1], Destination[0], Destination[1], date);
+            }
+
+            DepartureTime = date;
+            TravelTime = new TimeSpan(0, timeNeeded, 0);
         }
 
         public long ConvertToTimestamp(DateTime value)
