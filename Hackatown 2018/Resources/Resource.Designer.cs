@@ -44,14 +44,23 @@ namespace Hackatown_2018
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040000
+			public const int alarmTime = 2130968576;
+			
 			// aapt resource value: 0x7f040002
-			public const int checkBox1 = 2130968578;
+			public const int arrivalTime = 2130968578;
+			
+			// aapt resource value: 0x7f040004
+			public const int buttontest = 2130968580;
 			
 			// aapt resource value: 0x7f040001
-			public const int checkBox2 = 2130968577;
+			public const int dayOfWeek = 2130968577;
 			
-			// aapt resource value: 0x7f040000
-			public const int omaewa = 2130968576;
+			// aapt resource value: 0x7f040005
+			public const int listText = 2130968581;
+			
+			// aapt resource value: 0x7f040003
+			public const int textName = 2130968579;
 			
 			static Id()
 			{
@@ -67,7 +76,13 @@ namespace Hackatown_2018
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Main = 2130837504;
+			public const int AlarmLayout = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int ListViewPerso = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Main = 2130837506;
 			
 			static Layout()
 			{
