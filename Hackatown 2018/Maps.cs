@@ -119,7 +119,9 @@ namespace Hackatown_2018
             string html = string.Empty;
             double[] pos = new double[2] { location.Latitude, location.Longitude };
             string url = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + stringBrowsed +
-                "&location=" + pos[0].ToString("G",new CultureInfo("en-US")) + ',' + pos[1].ToString("G",new CultureInfo("en-US")) + "&radius=" + radius + "000&strictbounds" + "&key=AIzaSyCSu8kH3Rmg-ruB4bccMBrGXDhTuMb3yiI";
+                "&location=" + pos[0].ToString("G",new CultureInfo("en-US")) + ',' + 
+                pos[1].ToString("G",new CultureInfo("en-US")) + "&radius=" + radius + "000&strictbounds" +
+                "&key=AIzaSyAjW1veSgqnqM-zONyOcNInFsDGd7weAIo";
 
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
