@@ -56,7 +56,8 @@ namespace Hackatown_2018
             TextView arrivalTime = row.FindViewById<TextView>(Resource.Id.arrivalTime);
             TextView dayOfWeek = row.FindViewById<TextView>(Resource.Id.dayOfWeek);
 
-            alarmTime.Text = string.Format("{0:t}", Items[position].AlarmTime);
+            
+            alarmTime.Text = string.Format("{0:t}",Items[position].AlarmTime);
             arrivalTime.Text = string.Format("{0:t}", Items[position].DesiredTimeArrival);
             dayOfWeek.Text = Items[position].DesiredTimeArrival.DayOfWeek.ToString()[0].ToString() + Items[position].DesiredTimeArrival.DayOfWeek.ToString()[1].ToString();
             ChangeDayOfTheWeek(dayOfWeek);
@@ -66,6 +67,10 @@ namespace Hackatown_2018
         public void AddItem(Alarm item)
         {
             Items.Add(item);
+        }
+        public void RemoveItem(int position)
+        {
+            Items.RemoveAt(position);
         }
         public void ChangeDayOfTheWeek(TextView txt)
         {

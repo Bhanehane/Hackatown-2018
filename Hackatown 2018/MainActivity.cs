@@ -21,22 +21,24 @@ namespace Hackatown_2018
             // Set our view from the "main" layout resource
             myList = FindViewById<ListView>(Resource.Id.listText);
 
-
             Adapter = new MyOwnAdapter(this, alarms);
             myList.Adapter = Adapter;
 
             var intentNewItem = new Intent(this, typeof(ActivityNewItem));
 
-            //FindViewById<Button>(Resource.Id.addAlarm).Click += (e, o) =>
-            //{
-            //    adapter.AddItem(new Alarm("00:00", "00:01", "D"));
-            //    myList.Adapter = adapter;
-            //};
+
             FindViewById<Button>(Resource.Id.addAlarm).Click += (e, o) =>
             {
                 StartActivityForResult(intentNewItem, 1);
             };
-            
+            myList.ItemLongClick += (o,e) =>
+            {
+                //EditDialog dial = new EditDialog();
+                //FragmentTransaction fragTrans = FragmentManager.BeginTransaction();
+                //dial.Show(fragTrans, "dialog fragment");
+                Adapter.RemoveItem(e.Position);
+                myList.Adapter = Adapter;
+            };
         }
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
@@ -53,6 +55,7 @@ namespace Hackatown_2018
                 myList.Adapter = Adapter;
             }
         }
+
 
     }
 

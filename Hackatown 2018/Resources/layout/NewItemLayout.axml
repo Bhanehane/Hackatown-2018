@@ -3,66 +3,82 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <TextView
-      android:text="Date:"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView1"
-      android:textSize="22sp" />
-  <Button
-      android:id="@+id/btnDate"
-      android:text="Sélectionner une date"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
-  <TextView
-      android:text="Heure d'arrivée:"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView2"
-      android:textSize="22sp" />
-  <Button
-      android:text="Sélectionner l'heure d'arrivée"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btnTime" />
-  <TextView
-      android:text="Temps de préparation:"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView3"
-      android:textSize="22sp" />
-  <Button
-      android:text="Sélectionner le temps de préparation"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btnTimeDesired" />
-  <TextView
-      android:text="Position Actuelle:"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView4"
-      android:textSize="22sp" />
-  <Button
-      android:text="Sélectionner votre position actuelle"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btnPosActuelle" />
-  <TextView
-      android:text="Destination:"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/textView5"
-      android:textSize="22sp" />
-  <Button
-      android:text="Sélectionner la destination"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btnDest" />
-  <Button
-      android:text="Confirmer"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btnConfirmerNew"
-      android:textSize="22sp"
-      android:enabled="false" />
+    <TextView
+        android:text="Date:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textSize="22sp" />
+    <Button
+        android:id="@+id/btnDate"
+        android:text="Sélectionner une date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="Heure d'arrivée:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="22sp" />
+    <Button
+        android:text="Sélectionner l'heure d'arrivée"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTime" />
+    <TextView
+        android:text="Temps de préparation:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="22sp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spHour" />
+      <TextView
+        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:text ="heures"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spMinute" />
+      <TextView
+        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:text ="minutes"/>
+    </LinearLayout>
+    <TextView
+        android:text="Position Actuelle:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="22sp" />
+    <Button
+        android:text="Sélectionner votre position actuelle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPosActuelle" />
+    <TextView
+        android:text="Destination:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="22sp" />
+    <Button
+        android:text="Sélectionner la destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDest" />
+    <Button
+        android:text="Confirmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnConfirmerNew"
+        android:textSize="22sp"
+        android:enabled="false" />
 </LinearLayout>
