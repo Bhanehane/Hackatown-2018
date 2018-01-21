@@ -58,12 +58,46 @@ namespace Hackatown_2018
 
             alarmTime.Text = string.Format("{0:t}", Items[position].AlarmTime);
             arrivalTime.Text = string.Format("{0:t}", Items[position].DesiredTimeArrival);
-            dayOfWeek.Text = Items[position].DesiredTimeArrival.DayOfWeek.ToString()[0].ToString();
+            dayOfWeek.Text = Items[position].DesiredTimeArrival.DayOfWeek.ToString()[0].ToString() + Items[position].DesiredTimeArrival.DayOfWeek.ToString()[1].ToString();
+            ChangeDayOfTheWeek(dayOfWeek);
+
             return row;
         }
         public void AddItem(Alarm item)
         {
             Items.Add(item);
         }
+        public void ChangeDayOfTheWeek(TextView txt)
+        {
+            if(txt.Text == "Mo")
+            {
+                txt.Text = "L";
+            }
+            if (txt.Text == "Tu")
+            {
+                txt.Text = "Ma";
+            }
+            if (txt.Text == "We")
+            {
+                txt.Text = "Me";
+            }
+            if (txt.Text == "Th")
+            {
+                txt.Text = "J";
+            }
+            if (txt.Text == "Fr")
+            {
+                txt.Text = "V";
+            }
+            if (txt.Text == "Sa")
+            {
+                txt.Text = "S";
+            }
+            if (txt.Text == "Su")
+            {
+                txt.Text = "D";
+            }
+        }
+
     }
 }
