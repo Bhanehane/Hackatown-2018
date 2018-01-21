@@ -192,6 +192,7 @@ namespace Hackatown_2018
         public void CancelAlarm()
         {
             Manager.Cancel(PendingIntent);
+            IsActivated = false;
         }
     }
 }
