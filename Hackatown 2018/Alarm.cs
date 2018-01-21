@@ -41,6 +41,7 @@ namespace Hackatown_2018
             Position = position;
             Destination = destination;
             CalculateTravelTimeWithTraffic();
+            StartAlarm();
         }
 
         public void StartAlarm()
@@ -165,6 +166,10 @@ namespace Hackatown_2018
             }
             return resultat;
 
+        }
+        public void CancelAlarm()
+        {
+            Manager.Cancel(PendingIntent);
         }
     }
 }

@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-              android:descendantFocusability="blocksDescendants"  >
+    android:descendantFocusability="blocksDescendants">
     <TableLayout
         android:background="@android:color/holo_red_light"
         android:layout_width="match_parent"
@@ -20,16 +20,16 @@
                 android:layout_weight="4"
                 android:textSize="60sp"
                 android:text="00:00"
-                android:gravity="right" 
-                android:focusable="false"/>
+                android:gravity="right"
+                android:focusable="false" />
             <TextView
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="25sp"
                 android:text=""
-                android:gravity="left|center_vertical" 
-                android:focusable="false"/>
+                android:gravity="left|center_vertical"
+                android:focusable="false" />
             <Switch
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -44,7 +44,7 @@
                 android:textSize="40sp"
                 android:text=""
                 android:gravity="center"
-                android:focusable="false"/>
+                android:focusable="false" />
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
@@ -57,16 +57,16 @@
                 android:layout_weight="1"
                 android:textSize="25sp"
                 android:text="D"
-                android:gravity="center" 
-                android:focusable="false"/>
+                android:gravity="center"
+                android:focusable="false" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4"
                 android:textSize="16sp"
                 android:text="Arrivée à destination:"
-                android:gravity="center|right" 
-                android:focusable="false"/>
+                android:gravity="center|right"
+                android:focusable="false" />
             <TextView
                 android:id="@+id/arrivalTime"
                 android:layout_width="0dp"
@@ -74,15 +74,15 @@
                 android:layout_weight="2"
                 android:textSize="25sp"
                 android:text="00:00"
-                android:gravity="center" 
-                android:focusable="false"/>
+                android:gravity="center"
+                android:focusable="false" />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="25sp"
-                android:text="" 
-                android:focusable="false"/>
+                android:text=""
+                android:focusable="false" />
         </TableRow>
     </TableLayout>
 </LinearLayout>

@@ -70,6 +70,7 @@ namespace Hackatown_2018
         }
         public void RemoveItem(int position)
         {
+            Items[position].CancelAlarm();
             Items.RemoveAt(position);
         }
         public void ChangeDayOfTheWeek(TextView txt)
